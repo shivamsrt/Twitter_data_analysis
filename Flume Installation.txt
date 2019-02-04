@@ -1,0 +1,68 @@
+Important Link:
+
+For Installation:
+https://www.eduonix.com/blog/bigdata-and-hadoop/flume-installation-and-streaming-twitter-data-using-flume/
+
+For Description:
+search in google cca175 or can click in these links
+
+http://archive-primary.cloudera.com/cdh5/cdh/5/flume-ng-1.6.0-cdh5.10.1/FlumeUserGuide.html#hdfs-sink/
+
+https://www.cloudera.com/more/training/certification/cca-spark.html/
+
+-----------------------------------------------------------------------------------------------------------
+									Installation
+-----------------------------------------------------------------------------------------------------------
+
+Step 1: First download or copy the requiste tar file
+
+cd /home/training/downloads
+
+wget http://apache.mirrors.hoobly.com/flume/1.4.0/apache-flume-1.4.0-bin.tar.gz
+
+									or
+
+If you have the file downloaded then just copy and paste it to /home/training/downloads directory
+
+Step 2: Now create a directory in /usr/lib/ and move the tar file into it
+
+sudo mkdir /usr/lib/flume-ng
+
+sudo mv /home/training/downloads/apache-flume-1.4.0-bin.tar.gz /usr/lib/flume-ng/
+
+cd /usr/lib/flume-ng/
+
+sudo tar -xvf apache-flume-1.4.0-bin.tar.gz 
+
+cd apache-flume-1.4.0-bin
+
+Step 3: Now copy the flume-sources-1.0-SNAPSHOT.jar file into downloads and copy it to lib directory of flume directory
+
+We need to download flume-source-1.0-SNAPSHOT.jar file from internet or copy and paste it to downloads directory.
+
+sudo mv /home/training/downloads/flume-sources-1.0-SNAPSHOT.jar /usr/lib/flume-ng/apache-flume-1.4.0-bin/lib/
+
+C
+
+Step 4: Now get into conf directory of flume and create the property file.
+
+cd ..
+cd conf/
+ls -ltr
+sudo cp flume-env.sh.template flume-env.sh
+sudo gedit flume-env.sh
+
+Remove the # sign before java and that is
+JAVA_HOME=/usr/lib/jvm/java-6-sun
+FLUME_CLASSPATH= '/usr/lib/flume-ng/apache-flume-1.4.0-bin/lib/flume-source-1.0-SNAPSHOT.jar'
+
+Step 5:
+Now go to bin folder to execute the flume:
+
+
+
+
+
+use ctrl+c to stop the execution in flume
+
+

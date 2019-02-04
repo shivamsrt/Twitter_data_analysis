@@ -1,0 +1,70 @@
+Always copy the execution file in the conf directory of flume in this case it will be:
+
+/usr/lib/flume-ng/apache-flume-1.4.0-bin/conf/
+
+----------------------------------------------------------------------------------------------------------
+
+1st program:
+copy the file into conf directory------>twitter_flume.conf.txt
+
+Then execute this command from /usr/lib/flume-ng/apache-flume-1.4.0-bin/bin/ directory
+
+./flume-ng agent -n TwitterAgent -c conf -f /usr/lib/flume-ng/apache-flume-1.4.0-bin/conf/twitter_flume.conf.txt
+
+----------------------------------------------------------------------------------------------------------
+
+2nd Program:
+
+copy the file into conf directory------>netcat_to_logger_flume.conf.txt
+
+Then execute this command from /usr/lib/flume-ng/apache-flume-1.4.0-bin/bin/ directory
+
+./flume-ng agent -n NetcatAgent -c conf -f /usr/lib/flume-ng/apache-flume-1.4.0-bin/conf/netcat_to_logger_flume.conf.txt -Dflume.root.logger=INFO,console
+
+telnet localhost 56565
+
+now you can generate events and log them in to the consle
+
+----------------------------------------------------------------------------------------------------------
+
+
+3rd Program:
+
+copy the file into conf directory------>hive_netcat_log_7.conf
+
+Create table flumeEmployee ( name string, salary int, sex string, age int )
+row format delimited 
+fields terminated by ',';
+
+./flume-ng agent -n NetcatAgent -c conf -f /usr/lib/flume-ng/apache-flume-1.4.0-bin/conf/hive_netcat_log_7.conf -Dflume.root.logger=INFO,console
+
+telnet localhost 56565
+
+Alok,10000,male,29
+Jatin,15000,male,32
+Yogesh,12000,male,39
+Ragini,13000,female,34
+Jyotsana,12990,female,32
+Valmiki,123000,male,28
+
+----------------------------------------------------------------------------------------------------------
+										VM 5.5 and above
+----------------------------------------------------------------------------------------------------------
+
+
+4th Program:
+
+open a tab and write in vm5.5 and above:
+
+tail -F /opt/gen_logs/logs/access.log
+
+start_logs
+
+stop_logs
+
+open another tab and execute this:
+
+copy the file into conf directory------>access_log_3.conf
+
+Then execute this command from /usr/lib/flume-ng/apache-flume-1.4.0-bin/bin/ directory
+./flume-ng agent -n agent1 -c conf -f /usr/lib/flume-ng/conf/access_log_3.conf -Dflume.root.logger=INFO,console
